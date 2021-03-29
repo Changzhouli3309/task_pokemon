@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 function PokemonData(props) {
-  const { viewSwitch, dataLink } = props;
+  const { viewSwitch, dataLink, pngList} = props;
   const [pokeData, setPokData] = useState(JSON);
 
   useEffect(function () {
@@ -15,6 +15,7 @@ function PokemonData(props) {
 
   function goToList() {
     viewSwitch();
+    pngList[pokeData.id-1] = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pokeData.id + ".png";
   }
 
   return (
