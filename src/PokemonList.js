@@ -1,29 +1,28 @@
-import { useEffect, useState } from "react";
-import ListItem from "./ListItem"
+import React, { useEffect, useState } from "react";
+import ListItem from "./ListItem";
 
-function PokemonList() {
-    const [pokemonItem, setPokemos] = useState([]);
+function PokemonList(props) {
+  const { viewSwitch, getDateUrl } = props;
+  const [pokemonItems, setPokemos] = useState([]);
 
-    useEffect(function () {
-      const getList = async () => {
-        const resp = await fetch("https://pokeapi.co/api/v2/pokemon?limit=100");
-        const obj = await resp.json();
-        const pokeList = obj.results;
-        console.log(pokeList)
-        setPokemos(pokeList)
-      }
-      getList()
-    },[])
 
-    return (
-        <>
-            <h2>Pokemon List</h2>
+  useEffect(function () {
+    const getList = async () => {
+      const resp = await fetch("https://pokeapi.co/api/v2/pokemon?limit=100");
+      const obj = await resp.json();
+      const pokeList = obj.results;
+      setPokemos(pokeList);
+    }
+    getList()
+  }, [])
 
-            {pokemonItem.map((item,index) =>
-                (<div key={index}><label>{index+1}. </label><ListItem ItemData={item} /></div>)
-            )}
-        </>
-    );
+  return (
+    <>
+      {pokemonItems.map((item, index) =>
+        (<div key={index} ><ListItem viewSwitch={viewSwitch} getDateUrl={getDateUrl} item={item} index={index} /></div>)
+      )}
+    </>
+  );
 }
 
 export default PokemonList;
