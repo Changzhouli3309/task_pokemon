@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 function PokemonData(props) {
-  const { viewSwitch, dataLink, pngList} = props;
+  const { viewSwitch, dataLink, pngList } = props;
   const [pokeData, setPokData] = useState(JSON);
 
   useEffect(function () {
@@ -15,7 +15,7 @@ function PokemonData(props) {
 
   function goToList() {
     viewSwitch();
-    pngList[pokeData.id-1] = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pokeData.id + ".png";
+    pngList[pokeData.id - 1] = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pokeData.id + ".png";
   }
 
   return (
@@ -23,7 +23,7 @@ function PokemonData(props) {
       <div>{pokeData.id}. {pokeData.name}</div>
       <div>height:{pokeData.height}</div>
       <div>weight:{pokeData.weight}</div>
-      
+
       <button onClick={goToList}>go Back</button>
     </>
   );

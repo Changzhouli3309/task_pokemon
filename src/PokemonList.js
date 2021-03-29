@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ListItem from "./ListItem";
 
 function PokemonList(props) {
-  const { viewSwitch, getDateUrl , pngList} = props;
+  const { viewSwitch, getDateUrl, pngList } = props;
   const [pokemonItems, setPokemos] = useState([]);
 
 
@@ -19,7 +19,7 @@ function PokemonList(props) {
   return (
     <>
       {pokemonItems.map((item, index) =>
-        (<div key={index} ><ListItem viewSwitch={viewSwitch} getDateUrl={getDateUrl} item={item} index={index} /><img alt="1" src={pngList[index]}/></div>)
+        (<div key={index} ><ListItem viewSwitch={viewSwitch} getDateUrl={getDateUrl} item={item} index={index} /><img alt="" src={pngList[index]} /></div>)
       )}
     </>
   );
