@@ -21,7 +21,7 @@ function PokemonData(props) {
     <>
       <div>{pokeData.id}. {pokeData.name}</div>
       <div>height:{pokeData.height}</div>
-      <div>moves:</div>
+      <div>weight:{pokeData.weight}</div>
       
       <button onClick={goToList}>go Back</button>
     </>
